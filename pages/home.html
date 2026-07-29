@@ -4,56 +4,314 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Nanu's Universe ❤️</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+
+background:linear-gradient(135deg,#12001d,#2f0145,#57175b);
+
+overflow-x:hidden;
+
+}
+
+.glass{
+
+background:rgba(255,255,255,.1);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:25px;
+
+box-shadow:0 0 25px rgba(255,255,255,.08);
+
+}
+
+.menu-btn{
+
+display:block;
+
+width:100%;
+
+padding:16px;
+
+margin:12px 0;
+
+border-radius:18px;
+
+background:#ff4f93;
+
+color:white;
+
+font-weight:bold;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+background:#ff2d7a;
+
+color:white;
+
+transform:scale(1.02);
+
+}
+
+.progress{
+
+height:24px;
+
+border-radius:20px;
+
+background:#ffffff25;
+
+}
+
+.progress-bar{
+
+font-weight:bold;
+
+}
+
+.moon{
+
+position:fixed;
+
+top:40px;
+
+right:30px;
+
+width:80px;
+
+height:80px;
+
+background:#fff4b5;
+
+border-radius:50%;
+
+box-shadow:0 0 40px #fff4b5;
+
+cursor:pointer;
+
+}
+
+.hidden-heart{
+
+position:fixed;
+
+bottom:30px;
+
+right:25px;
+
+font-size:34px;
+
+cursor:pointer;
+
+animation:pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.3);
+
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
+<div class="moon" onclick="tapMoon()"></div>
+
 <div class="container py-5">
 
-<h1 class="text-center mb-5">
+<div class="glass">
+
+<h1 class="text-center">
 
 Welcome Nanu ❤️
 
 </h1>
 
-<div class="row g-3">
+<p class="text-center">
 
-<div class="col-12">
-<a class="btn btn-pink w-100" href="story.html">📖 Our Story</a>
+Explore every room to unlock surprises ✨
+
+</p>
+
+<hr>
+
+<h5>
+
+Universe Progress
+
+</h5>
+
+<div class="progress mb-4">
+
+<div
+
+id="progressBar"
+
+class="progress-bar bg-success"
+
+style="width:0%;"
+
+>
+
+0%
+
 </div>
 
-<div class="col-12">
-<a class="btn btn-pink w-100" href="gallery.html">📸 Memories</a>
 </div>
 
-<div class="col-12">
-<a class="btn btn-pink w-100" href="letters.html">💌 Love Letters</a>
+<a class="menu-btn" href="story.html">
+
+📖 Our Story
+
+</a>
+
+<a class="menu-btn" href="gallery.html">
+
+📸 Memories
+
+</a>
+
+<a class="menu-btn" href="letters.html">
+
+💌 Love Letters
+
+</a>
+
+<a class="menu-btn" href="games.html">
+
+🎮 Love Arcade
+
+</a>
+
+<a class="menu-btn" href="gift.html">
+
+🎁 Secret Gift
+
+</a>
+
+<a class="menu-btn" href="../index.html">
+
+🏠 Home
+
+</a>
+
 </div>
 
-<div class="col-12">
-<a class="btn btn-pink w-100" href="games.html">🎮 Games</a>
 </div>
 
-<div class="col-12">
-<a class="btn btn-pink w-100" href="future.html">🌙 Future Dreams</a>
+<div
+
+class="hidden-heart"
+
+onclick="collectHeart(this)"
+
+>
+
+❤️
+
 </div>
 
-<div class="col-12">
-<a class="btn btn-pink w-100" href="surprise.html">🎁 Surprise Room</a>
-</div>
+<script>
 
-</div>
+let progress=Number(localStorage.getItem("progress"))||0;
 
-</div>
+let hearts=Number(localStorage.getItem("hearts"))||0;
+
+let moon=Number(localStorage.getItem("moon"))||0;
+
+updateBar();
+
+function updateBar(){
+
+document.getElementById("progressBar").style.width=progress+"%";
+
+document.getElementById("progressBar").innerHTML=progress+"%";
+
+}
+
+function collectHeart(el){
+
+if(el.dataset.done)return;
+
+el.dataset.done=1;
+
+hearts++;
+
+progress=Math.min(progress+20,100);
+
+localStorage.setItem("hearts",hearts);
+
+localStorage.setItem("progress",progress);
+
+updateBar();
+
+el.remove();
+
+if(hearts==5){
+
+alert("🎉 Congratulations!\nYou found all 5 hearts!\nA secret surprise has been unlocked ❤️");
+
+}else{
+
+alert("❤️ Heart Found!\n"+hearts+"/5 collected");
+
+}
+
+}
+
+function tapMoon(){
+
+moon++;
+
+localStorage.setItem("moon",moon);
+
+if(moon<10){
+
+alert("🌙 Moon taps: "+moon+"/10");
+
+}
+
+if(moon==10){
+
+progress=Math.min(progress+20,100);
+
+localStorage.setItem("progress",progress);
+
+updateBar();
+
+alert("✨ Secret Unlocked!\nYou discovered the Moon Secret ❤️");
+
+window.location.href="letters.html";
+
+}
+
+}
+
+</script>
 
 </body>
 
