@@ -69,8 +69,6 @@ setInterval(updateCounter,60000);
 
 document.getElementById("enter").onclick=function(){
 
-    alert(
-    "Welcome to Nanu's Universe ❤️\n\nMade with love by Anu ✨"
-    );
+window.location.href="pages/home.html";
 
 };
