@@ -1,74 +1,49 @@
-// Typing effect
+const text="Dear Nanu ❤️";
 
-const text = "Dear Nanu ❤️";
+let i=0;
 
-let i = 0;
+function type(){
 
+if(i<text.length){
 
-function typing(){
+document.getElementById("typing").innerHTML+=text[i];
 
-    if(i < text.length){
+i++;
 
-        document.getElementById("typing").innerHTML += text[i];
-
-        i++;
-
-        setTimeout(typing,150);
-
-    }
+setTimeout(type,140);
 
 }
 
+}
 
-typing();
+type();
 
 
 
+const startDate=new Date("2026-02-09T00:00:00");
 
-// Relationship timer
+
 
 function updateCounter(){
 
-    const start = new Date("February 9, 2026");
+const now=new Date();
 
-    const now = new Date();
+const diff=now-startDate;
 
-    const difference = now - start;
+if(diff<0){
 
+document.getElementById("counter").innerHTML="Our journey is beginning ❤️";
 
-    const days = Math.floor(
-        difference / (1000*60*60*24)
-    );
-
-
-    if(days >= 0){
-
-        document.getElementById("counter").innerHTML =
-        days + " days together ❤️";
-
-    }
-
-    else{
-
-        document.getElementById("counter").innerHTML =
-        "Our journey is beginning ❤️";
-
-    }
+return;
 
 }
 
+const days=Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("counter").innerHTML=days+" Days ❤️";
+
+}
 
 updateCounter();
 
 setInterval(updateCounter,60000);
-
-
-
-
-// Enter button
-
-document.getElementById("enter").onclick=function(){
-
-window.location.href="pages/home.html";
-
-};
