@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Love Letters ❤️</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+.envelope{
+
+background:rgba(255,255,255,.10);
+
+border-radius:20px;
+
+padding:20px;
+
+margin-bottom:20px;
+
+text-align:center;
+
+cursor:pointer;
+
+border:1px solid rgba(255,255,255,.15);
+
+transition:.3s;
+
+}
+
+.envelope:hover{
+
+transform:scale(1.02);
+
+background:rgba(255,255,255,.18);
+
+}
+
+.letter{
+
+display:none;
+
+margin-top:15px;
+
+padding:20px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:18px;
+
+line-height:1.8;
+
+animation:fade .5s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="moon"></div>
+
+<div class="container py-5">
+
+<h1 class="text-center mb-5">
+💌 Love Letters
+</h1>
+
+<div class="envelope" onclick="toggleLetter('l1')">
+
+📩 Open Letter #1
+
+<div class="letter" id="l1">
+
+<h4>Dear Nanu ❤️</h4>
+
+<p>
+
+Thank you for being part of my life.
+
+Every conversation, every smile, and every memory we create means so much to me.
+
+No website could ever fully express how much you matter, but I wanted to build something that would always remind you that you're loved.
+
+❤️ — Anu
+
+</p>
+
+</div>
+
+</div>
+
+<div class="envelope" onclick="toggleLetter('l2')">
+
+💌 Open Letter #2
+
+<div class="letter" id="l2">
+
+<h4>My Favorite Person ✨</h4>
+
+<p>
+
+No matter how busy life gets, I hope we always make time to laugh together, support each other, and create new memories.
+
+Thank you for being you.
+
+🌙❤️
+
+</p>
+
+</div>
+
+</div>
+
+<div class="envelope" onclick="toggleLetter('l3')">
+
+📜 Open Secret Letter
+
+<div class="letter" id="l3">
+
+<h4>A Small Promise 🤍</h4>
+
+<p>
+
+I promise to keep cheering for your dreams, celebrating your victories, and standing beside you through the difficult moments.
+
+I hope this little universe always makes you smile whenever you visit it.
+
+Forever grateful for us.
+
+❤️
+
+</p>
+
+</div>
+
+</div>
+
+<div class="text-center mt-5">
+
+<a href="home.html" class="btn btn-pink">
+
+⬅ Back
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function toggleLetter(id){
+
+const letter=document.getElementById(id);
+
+letter.style.display=
+letter.style.display==="block"
+?
+"none"
+:
+"block";
+
+}
+
+</script>
+
+</body>
+
+</html>
