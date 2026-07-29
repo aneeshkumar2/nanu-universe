@@ -1,21 +1,21 @@
-// Typing animation
+// Typing effect
 
-const message = "Dear Nanu ❤️";
+const text = "Dear Nanu ❤️";
 
-let position = 0;
+let i = 0;
 
 
 function typing(){
 
-if(position < message.length){
+    if(i < text.length){
 
-document.getElementById("typing").innerHTML += message[position];
+        document.getElementById("typing").innerHTML += text[i];
 
-position++;
+        i++;
 
-setTimeout(typing,150);
+        setTimeout(typing,150);
 
-}
+    }
 
 }
 
@@ -25,38 +25,35 @@ typing();
 
 
 
-// Relationship counter
+// Relationship timer
 
 function updateCounter(){
 
+    const start = new Date("February 9, 2026");
 
-const startDate = new Date("February 9, 2026");
+    const now = new Date();
 
-
-const today = new Date();
-
-
-const difference = today - startDate;
+    const difference = now - start;
 
 
-const days = Math.floor(
-difference / (1000 * 60 * 60 * 24)
-);
+    const days = Math.floor(
+        difference / (1000*60*60*24)
+    );
 
 
-if(days >= 0){
+    if(days >= 0){
 
-document.getElementById("counter").innerHTML =
-days + " days together ❤️";
+        document.getElementById("counter").innerHTML =
+        days + " days together ❤️";
 
-}
-else{
+    }
 
-document.getElementById("counter").innerHTML =
-"Our story is just beginning ❤️";
+    else{
 
-}
+        document.getElementById("counter").innerHTML =
+        "Our journey is beginning ❤️";
 
+    }
 
 }
 
@@ -68,12 +65,12 @@ setInterval(updateCounter,60000);
 
 
 
-// Button
+// Enter button
 
 document.getElementById("enter").onclick=function(){
 
-alert(
-"Nanu ❤️\n\nWelcome to the universe Anu made for you ✨"
-);
+    alert(
+    "Welcome to Nanu's Universe ❤️\n\nMade with love by Anu ✨"
+    );
 
 };
